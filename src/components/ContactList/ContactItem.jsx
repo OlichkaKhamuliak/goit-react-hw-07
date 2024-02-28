@@ -3,9 +3,9 @@ import { IoPersonRemove } from "react-icons/io5";
 import { IoPerson } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactSlice";
+// import { deleteContact } from "../../redux/contactSlice";
 
-export const Contact = ({ contact: { name, number, id } }) => {
+export const Contact = ({ contact: { name, phone, id } }) => {
   const dispatch = useDispatch();
   return (
     <div className={css.wrap}>
@@ -16,7 +16,7 @@ export const Contact = ({ contact: { name, number, id } }) => {
         </p>
         <p className={css.text}>
           <FaPhone className={css.icon} />
-          {number}
+          {phone}
         </p>
       </div>
       <div>

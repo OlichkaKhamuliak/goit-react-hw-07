@@ -11,6 +11,7 @@ import {
 } from "./redux/selectors";
 import { useEffect } from "react";
 import { setFilter } from "./redux/filterSlice";
+import { fetchContacts } from "./redux/contactSlice";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,10 @@ export const App = () => {
       dispatch(setFilter(""));
     }
   }, [contacts, dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <div style={{ padding: 8 }}>
