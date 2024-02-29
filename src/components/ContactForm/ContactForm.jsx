@@ -2,14 +2,14 @@ import { useId, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import { IoPersonAdd } from "react-icons/io5";
 import { IMaskInput } from "react-imask";
 import { useDispatch, useSelector } from "react-redux";
-// import { addContact } from "../../redux/contactSlice";
 import countries from "./countries";
 import { selectContacts } from "../../redux/selectors";
 import toast, { Toaster } from "react-hot-toast";
+import { addContact } from "../../redux/operation";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
@@ -40,6 +40,9 @@ export const ContactForm = () => {
 
   const nameFieldId = useId();
   const numberFieldId = useId();
+  const handleAddContact = (newContact) => {
+    dispatch(addContact(newContact));
+  };
 
   return (
     <div>
@@ -50,14 +53,17 @@ export const ContactForm = () => {
         }}
         validationSchema={userSchema}
         onSubmit={(values, { resetForm }) => {
+          const newContact = {
+            name: values.name,
+            phone: values.number,
+          };
           //Перевіряємо чи номер або ім'я контакту вже існує в книзі контактів
           const nameMatch = contacts.find(
             (contact) =>
               contact.name.toLowerCase() === values.name.toLocaleLowerCase()
           );
           const numberMatch = contacts.find(
-            (contact) =>
-              contact.number.toLowerCase() === values.number.toLocaleLowerCase()
+            (contact) => contact.phone === values.number
           );
 
           if (nameMatch || numberMatch) {
@@ -75,7 +81,7 @@ export const ContactForm = () => {
             return;
           }
 
-          dispatch(addContact({ id: nanoid(), ...values }));
+          handleAddContact(newContact);
           resetForm();
         }}
       >

@@ -4,8 +4,8 @@ import { selectFilter } from "../../redux/selectors";
 import { setFilter } from "../../redux/filterSlice";
 
 export const SearchBox = () => {
-  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
+  const filter = useSelector(selectFilter);
   return (
     <div className={css.wrapper}>
       <p>Finds contacts by name or phone number</p>

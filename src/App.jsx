@@ -6,12 +6,15 @@ import { FaAddressBook } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectContacts,
+  selectError,
   selectFilter,
+  selectLoading,
   selectVisibleContacts,
 } from "./redux/selectors";
 import { useEffect } from "react";
 import { setFilter } from "./redux/filterSlice";
 import { fetchContacts } from "./redux/operation";
+import Loader from "./components/Loader/Loader";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -19,6 +22,8 @@ export const App = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
   const visibleContacts = useSelector(selectVisibleContacts);
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   //Скидуємо фільтр коли масив контактів порожній
   useEffect(() => {
@@ -33,6 +38,8 @@ export const App = () => {
 
   return (
     <div style={{ padding: 8 }}>
+      {loading && <Loader />}
+      {error && <p>{error.message}</p>}
       <h1 className={css.title}>
         <FaAddressBook className={css.icon} />
         Phone Book
