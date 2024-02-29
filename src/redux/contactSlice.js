@@ -1,6 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-axios.defaults.baseURL = "https://65df0be9ff5e305f32a147bb.mockapi.io";
+import { createSlice } from "@reduxjs/toolkit";
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -10,18 +8,6 @@ const contactsSlice = createSlice({
     error: null,
   },
 });
-
-export const fetchContacts = createAsyncThunk(
-  "contacts/fetchAll",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get("/contacts");
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
 
 export const contactsReducer = contactsSlice.reducer;
 
