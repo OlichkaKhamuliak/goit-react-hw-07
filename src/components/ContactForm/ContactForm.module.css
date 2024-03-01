@@ -77,10 +77,9 @@
     margin-bottom: 25px;
     padding: 15px;
     border-radius: 10px;
-    height: 430px;
   }
   .number {
-    margin-top: 70px;
+    margin-top: 5px;
   }
   .input {
     font-size: 15px;
@@ -100,9 +99,11 @@
   .button {
     padding: 10px 20px;
 
-    margin-top: 220px;
+    margin-top: 90px;
   }
-
+  .formGroup {
+    height: 130px;
+  }
   .btnIcon {
     margin-right: 10px;
   }
