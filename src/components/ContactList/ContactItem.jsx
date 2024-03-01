@@ -33,8 +33,8 @@ export const Contact = ({ contact }) => {
           {phone}
         </p>
       </div>
-      <div>
-        <button className={css.btn} onClick={openEditModal}>
+      <div className={css.btnWrap}>
+        <button className={`${css.btn} ${css.edit}`} onClick={openEditModal}>
           <MdModeEditOutline className={css.icon} size="25" />
           Edit
         </button>
@@ -43,13 +43,11 @@ export const Contact = ({ contact }) => {
           Delete
         </button>
       </div>
-      {isEditing && (
-        <EditContactModal
-          isOpen={isEditing}
-          closeModal={closeEditModal}
-          contact={contact}
-        />
-      )}
+      <EditContactModal
+        isOpen={isEditing}
+        closeModal={closeEditModal}
+        contact={contact}
+      />
     </div>
   );
 };

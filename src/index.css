@@ -63,6 +63,7 @@ input:hover,
 input:focus,
 input:active {
   background-color: rgba(209, 224, 232, 0.822);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Заблокувати прокрутку та фіксувати модальне вікно */
@@ -72,6 +73,11 @@ body.ReactModal__Body--open {
 
 @media screen and (min-width: 768px) {
   .ReactModal__Content {
-    width: 50% !important;
+    max-width: 70% !important;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .ReactModal__Content {
+    max-width: 40% !important;
   }
 }

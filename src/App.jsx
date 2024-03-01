@@ -38,16 +38,16 @@ export const App = () => {
 
   return (
     <div style={{ padding: 8 }}>
-      {loading && <Loader />}
       {error && <p>{error.message}</p>}
       <h1 className={css.title}>
         <FaAddressBook className={css.icon} />
         Phone Book
       </h1>
       <ContactForm />
+      {loading && <Loader />}
       {contacts.length > 0 ? (
         <SearchBox />
-      ) : (
+      ) : loading ? null : ( // Перевірка, чи завантажуються контакти
         <p className={`${css.text} ${css.noContacts}`}>
           You don`t have any contacts yet.
         </p>

@@ -1,5 +1,5 @@
 .form {
-  width: 288px;
+  width: 94%;
   margin-bottom: 20px;
   padding: 8px;
   border: 1px solid black;
@@ -10,9 +10,9 @@
   gap: 8px;
   margin: 0 auto;
 }
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 500px) {
   .form {
-    width: 350px;
+    width: 481px;
   }
 }
 
@@ -57,7 +57,6 @@
   border-radius: 15px;
   margin: 0 auto;
   margin-top: 73px;
-  width: 160px;
   transition: background-color var(--animation), box-shadow var(--animation);
 }
 
@@ -68,5 +67,43 @@
 .button:hover,
 .button:active {
   background-color: #21acd7;
-  box-shadow: 0px 2px 2px 2px #21acd738;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    font-size: 25px;
+    width: 564px;
+    margin-bottom: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    height: 430px;
+  }
+  .number {
+    margin-top: 70px;
+  }
+  .input {
+    font-size: 15px;
+    padding: 10px 15px;
+    font-size: 25px;
+  }
+  .select {
+    margin-bottom: 10px;
+    max-width: 170px;
+    padding: 7px 11px;
+    font-size: 25px;
+  }
+  .error {
+    font-size: 19px;
+  }
+
+  .button {
+    padding: 10px 20px;
+
+    margin-top: 220px;
+  }
+
+  .btnIcon {
+    margin-right: 10px;
+  }
 }
